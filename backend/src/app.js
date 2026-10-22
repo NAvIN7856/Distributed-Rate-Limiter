@@ -8,10 +8,25 @@ const { httpRequestDuration } = require("./metrics/metrics");
 const { client } = require("./metrics/metrics");
 const app = express();
 
-// CORS for frontend dev server
+// CORS for frontend dev and production deployments
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:3001",
+  process.env.FRONTEND_URL,
+].filter(Boolean);
+
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:3001"],
+    origin: (origin, callback) => {
+      if (
+        !origin ||
+        allowedOrigins.includes(origin) ||
+        origin.endsWith(".vercel.app")
+      ) {
+        return callback(null, true);
+      }
+      return callback(null, true);
+    },
     credentials: true,
   }),
 );
