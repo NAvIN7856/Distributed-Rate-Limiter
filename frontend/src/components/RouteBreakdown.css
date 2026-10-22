@@ -1,0 +1,146 @@
+.route-panel {
+  padding: 0;
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.route-panel__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 22px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+.route-panel__header svg {
+  color: #0284C7;
+}
+
+.route-panel__header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.route-panel__empty {
+  padding: 40px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  background: #FFFFFF;
+}
+
+.route-bars {
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: #FFFFFF;
+}
+
+.route-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  animation: fadeInUp 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+.route-bar__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 155px;
+  flex-shrink: 0;
+}
+
+.route-bar__label code {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.route-bar__track {
+  flex: 1;
+  height: 22px;
+  background: #EFEAE0;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  min-width: 100px;
+}
+
+.route-bar__fill {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.route-bar__fill--success {
+  background: linear-gradient(90deg, #059669, #10B981);
+  left: 0;
+  z-index: 3;
+}
+
+.route-bar__fill--blocked {
+  background: linear-gradient(90deg, #DC2626, #EF4444);
+  z-index: 2;
+}
+
+.route-bar__fill--other {
+  background: linear-gradient(90deg, #D97706, #F59E0B);
+  z-index: 1;
+}
+
+.route-bar__count {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  min-width: 40px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Legend */
+.route-legend {
+  display: flex;
+  gap: 20px;
+  padding: 12px 22px;
+  border-top: 1px solid var(--border);
+  background: #FAF7F2;
+}
+
+.route-legend__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.route-legend__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.route-legend__dot--success {
+  background: #10B981;
+}
+
+.route-legend__dot--blocked {
+  background: #EF4444;
+}
+
+.route-legend__dot--other {
+  background: #F59E0B;
+}

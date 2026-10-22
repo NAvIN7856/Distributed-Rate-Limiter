@@ -1,10 +1,21 @@
 const express = require("express");
+const cors = require("cors");
 const rateLimiter = require("./middleware/rateLimiter");
 const testRoutes = require("./routes/test.routes");
+const dashboardRoutes = require("./routes/dashboard.routes");
 const responseTime = require("response-time");
 const { httpRequestDuration } = require("./metrics/metrics");
 const { client } = require("./metrics/metrics");
 const app = express();
+
+// CORS for frontend dev server
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "http://localhost:3001"],
+    credentials: true,
+  }),
+);
+
 app.use(
   responseTime((req, res, time) => {
     httpRequestDuration
@@ -18,6 +29,10 @@ app.get("/metrics", async (req, res) => {
   res.end(await client.register.metrics());
 });
 app.use(express.json());
+
+// Dashboard routes (before rate limiter so they aren't rate-limited)
+app.use("/", dashboardRoutes);
+
 app.use(rateLimiter);
 app.use("/", testRoutes);
 module.exports = app;

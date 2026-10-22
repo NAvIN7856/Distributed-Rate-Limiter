@@ -1,0 +1,121 @@
+.redis-panel {
+  padding: 0;
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.redis-panel__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 22px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+.redis-panel__header svg {
+  color: #DC2626;
+}
+
+.redis-panel__header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.redis-panel__status-text {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+.redis-panel__body {
+  padding: 18px 22px;
+  background: #FFFFFF;
+}
+
+.redis-panel__offline {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 24px;
+}
+
+.redis-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.redis-stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: #FAF8F5;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.redis-stat svg {
+  color: var(--text-muted);
+}
+
+.redis-stat__label {
+  flex: 1;
+  font-weight: 500;
+}
+
+.redis-stat__value {
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 0.92rem;
+}
+
+/* Keys list */
+.redis-keys {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+}
+
+.redis-keys__title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.redis-keys__list {
+  max-height: 160px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.redis-key {
+  padding: 5px 10px;
+  border-radius: 4px;
+  background: #FAF6F0;
+  border: 1px solid #EAE4D8;
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+  word-break: break-all;
+  transition: all var(--transition-fast);
+}
+
+.redis-key:hover {
+  background: #F3ECE0;
+  border-color: #D8CEBE;
+  color: var(--text-primary);
+}
